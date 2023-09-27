@@ -7,6 +7,3 @@ RUN npm install
 EXPOSE 80
 CMD PORT = 80 npm start
 
-#cmd port 
-
-port : variable de entorno que recibe nuestra aplicacionn
