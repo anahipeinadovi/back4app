@@ -12,6 +12,8 @@ const genresRouter = require('./routes/genres');
 const moviesRouter = require('./routes/movies');
 const actorsRouter = require('./routes/actors');
 const membersRouter = require('./routes/members');
+const bookingsRouter = require('./routes/bookings');
+const copiesRouter = require('./routes/copies');
 
 
 
@@ -36,6 +38,8 @@ app.use('/genres',genresRouter);
 app.use('/movies',moviesRouter);
 app.use('/actors',actorsRouter);
 app.use('/members',membersRouter);
+app.use('/bookings', bookingsRouter);
+app.use('/copies', copiesRouter);
 
 
 

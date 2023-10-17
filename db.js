@@ -15,6 +15,8 @@ const movieModel = require('./models/movie');
 const actorModel = require('./models/actor');
 const memberModel = require('./models/member');
 const movieActorModel = require('./models/movieActor');
+const bookingModel = require('./models/booking');
+const copyModel = require('./models/copy');
 
 
 /*hacer conexion con la base de datos 4 putnos 
@@ -38,12 +40,15 @@ const Movie = movieModel(sequelize,Sequelize);
 const Actor = actorModel(sequelize,Sequelize);
 const Member = memberModel(sequelize,Sequelize);
 const MovieActor = movieActorModel(sequelize,Sequelize);
-
+const Booking = bookingModel(sequelize, Sequelize);
+const Copy = copyModel(sequelize, Sequelize);
 
 
 
 
 //****************ESTABLECEMOS LAS RELACIONES ENTRE TABLAS **********
+
+
 //un genero puede tener muchas peliculas 
 Genre.hasMany(Movie,{as: 'movies'}); //objeto que pide un atributo 'as' para nosotros darle un nombre de como se va a llamar el atributo de la llave foranea 
 
@@ -56,11 +61,41 @@ Director.hasMany(Movie,{as:'movies'});
 //una pelicula tiene un director 
 Movie.belongsTo(Director,{as:'director'});
 
-// 1 actor participa en muchas peliculas  para poderlo mapear vamos a necesitar un  ... intermedio 
-MovieActor.belongsTo(Movie,{Movie:'movieId'});
+// // 1 actor participa en muchas peliculas  para poderlo mapear vamos a necesitar un  ... intermedio 
+// MovieActor.belongsTo(Movie,{Movie:'movieId'});
 
-// En 1 pelicula participan muchos actores
-MovieActor.belongsTo(Actor,{foreignKey:'actorId'});
+// // En una pelicula participan muchos actores
+// MovieActor.belongsTo(Actor,{foreignKey:'actorId'});
+
+
+// Un actor participa en muchas peliculas
+MovieActor.belongsTo(Movie, {foreingKey: 'movieId'});
+
+// En una pelicula participan muhos actores
+MovieActor.belongsTo(Actor, {foreingKey: 'actorId'});
+
+///////////////////
+
+// Una pelicula tiene varias copias
+Movie.hasMany(Copy, {as:'copies'});
+
+// Una copia tiene una pelicula
+Copy.belongsTo(Movie, {as:'movie'});
+
+// Una copia tiene muchas reservas
+Copy.hasMany(Booking,{as:'bookings'});
+
+// Una reserva tiene una copia
+Booking.belongsTo(Copy, {as:'copy'});
+
+// Un miembro puede tener muchas reservas
+Member.hasMany(Booking, {as:'bookings'});
+
+// Una reserva tiene un miembro
+Booking.belongsTo(Member, {as:'members'});
+
+
+
 
 //belongs to many ayuda a hacer el cierre del otro lado de la relacion 
 Movie.belongsToMany(Actor,{
@@ -92,5 +127,7 @@ module.exports= {
         Genre,
         Movie,
         Actor,
-        Member
+        Member,
+        Booking, 
+        Copy
 };
