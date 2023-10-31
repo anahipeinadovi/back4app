@@ -1,4 +1,4 @@
-# Práctica | Mi primera API con express + ORM
+# Práctica | Mi primera API con express + ODM
 
 ## Getting Started
 
