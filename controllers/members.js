@@ -36,22 +36,75 @@ function create(req,res,next){
 }
 
 function list(req,res,next){
-    res.send('Users list');
+    Member.find().then(objs => res.status(200).json({
+        message:"Lista de Socios",
+        obj:objs
+    })).catch(ex => res.status(500).json({
+        message:"No se puede consultar la lista de socios",
+        obj:ex
+    }));
+
 }
 
 function index(req,res,next){
-    res.send('Users index');
+    const id = req.params.id;
+    Member.findOne({"_id":id}).then(obj => res.status(200).json({
+        message:`Socio con el id ${id}`,
+        obj:obj
+    })).catch(ex => res.status(500).json({
+        message:`No se puede consultar el socio con el id: ${id}`,
+        obj:ex
+    }));
 }
 
 function replace(req,res,next){
-    res.send('Users replace');
+    const id = req.params.id;
+    let name = req.body.name ? req.body.name : "";
+    let lastName = req.body.lastName ? req.body.lastName : "";
+    let address = req.body.address ? req.body.address : "";
+    let phone = req.body.phone ? req.body.phone : "";
+    let member = new Object({
+        _name:name, _lastName:lastName, _address:address, _phone:phone
+    });
+    Member.findOneAndUpdate({"_id":id}, member, {new:true})
+            .then(obj => res.status(200).json({
+                message:`Miembro reemplazado correctamente, con el id: ${id}`,
+                obj:obj
+            })).catch(ex => res.status(500).json({
+                message:`No se puede reemplazar el miembro con el id: ${id}`,
+                obj:ex
+            }));
 }
 function update(req,res,next){
-    res.send('Users update');
+    const id = req.params.id;
+    let name = req.body.name;
+    let lastName = req.body.lastName;
+    let address = req.body.address;
+    let phone = req.body.phone;
+    let member = new Object();
+    if(name) member._name = name;
+    if(lastName) member._lastName = lastName;
+    if(address) member._address = address;
+    if(phone) member._phone = phone;
+    Member.findOneAndUpdate({"_id":id}, member)
+            .then(obj => res.status(200).json({
+                message:`Miembro actualizado corretamente, con el id: ${id}`,
+                obj:obj
+            })).catch(ex => res.status(500).json({
+                message:`No se pudo actualizar el miembro con el id: ${id}`,
+                obj:ex
+            }));
 }
 
 function destroy(req,res,next){
-    res.send('Users destroy');
+    const id = req.params.id;
+    Member.findByIdAndRemove({"_id":id}).then(obj => res.status(200).json({
+        message:`Miembro eliminado correctamente, contaba con el id: ${id}`,
+        obj:obj
+    })).catch(ex => res.status(500).json({
+        message:`No se puede eliminar el miembro con el id: ${id}`,
+        obj:ex
+    }));
 }
 
 

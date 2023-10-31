@@ -5,7 +5,8 @@ function create(req, res, next){
     const name = req.body.name;
     const lastName = req.body.lastName;
     let director = new Director({
-        name:name, lastName:lastName
+        name:name, 
+        lastName:lastName
     });
     director.save().then(obj => res.status(200).json({
         message:"Director creado correctamente", 
@@ -17,15 +18,16 @@ function create(req, res, next){
 }
 
 function list(req, res, next) {
-    Director.find().then(objs => res.status(200).json({
-        message:"Lista de directores",
+    let page = req.params.page ? req.params.page: 1;
+    const options = {page:page, limit:10};
+    Director.paginate({}, options).then(objs => res.status(200).json({
+        msg:"Lista de directores",
         obj:objs
     })).catch(ex => res.status(500).json({
-        message:"No se puedo consultar la lista de directores",
+        msg:"Error al mostrar la lista de usuarios",
         obj:ex
     }));
 }
-
 function index(req, res, next){
     const id = req.params.id;
     Director.findOne({"_id":id}).then(obj => res.status(200).json({

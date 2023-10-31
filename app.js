@@ -11,6 +11,10 @@ const directorsRouter = require('./routes/directors');
 const actorsRouter = require('./routes/actors');
 const genresRouter = require('./routes/genres');
 const membersRouter = require('./routes/members');
+const moviesRouter = require('./routes/movies');
+const copiesRouter = require('./routes/copies');
+const bookingsRouter = require('./routes/bookings');
+const awaitListsRouter = require('./routes/awaitLists');
 
 const app = express();
 //mongodb://<dbUser>?:<dbPass>?@<url>:<port>/<dbName>
@@ -42,6 +46,12 @@ app.use('/directors', directorsRouter);
 app.use('/actors', actorsRouter);
 app.use('/genres', genresRouter);
 app.use('/members', membersRouter);
+app.use('/movies', moviesRouter);
+app.use('/copies', copiesRouter);
+app.use('/bookings',bookingsRouter);
+app.use('/awaitLists',awaitListsRouter);
+
+
 
 
 // catch 404 and forward to error handler
