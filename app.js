@@ -56,7 +56,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(i18n.init); //da una funcion que inicializa el proceso de i18n
 
-app.use(expressjwt({secret:JwtKey,algorithms:['HS256']}).unless({path:['/login']})); 
+//app.use(expressjwt({secret:JwtKey,algorithms:['HS256']}).unless({path:['/login']})); 
 
 
 app.use('/', indexRouter);

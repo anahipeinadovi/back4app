@@ -18,16 +18,20 @@ function create(req, res, next){
 }
 
 function list(req, res, next) {
-    let page = req.params.page ? req.params.page: 1;
-    const options = {page:page, limit:10};
-    Director.paginate({}, options).then(objs => res.status(200).json({
-        msg:"Lista de directores",
-        obj:objs
-    })).catch(ex => res.status(500).json({
-        msg:"Error al mostrar la lista de usuarios",
+    let page = req.params.page ? req.params.page :1;
+    const options = {
+        page:page,
+        limit:5
+    };
+    Director.paginate({}, options)
+    .then(objs => res.render('directors/list', {directors:objs}))
+    .catch(ex => res.status(500).json({
+        message:"No se puedo consultar la lista de directores",
         obj:ex
     }));
 }
+
+
 function index(req, res, next){
     const id = req.params.id;
     Director.findOne({"_id":id}).then(obj => res.status(200).json({
