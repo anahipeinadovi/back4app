@@ -6,7 +6,7 @@ const app = require('../app');
 describe("Probar el sistema de autenticación",()=>{
     it("Deberia obtener un login con un user y un pass ok",(done)=>{
         supertest(app).post("/login")
-        .send({"email":"","password":""})
+        .send({"email":"anahi.peinado@outlook.com","password":"muy_secreto"})
         .expect(200)
         .end(function(err,res){
             if(err){

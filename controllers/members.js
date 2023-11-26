@@ -25,10 +25,11 @@ function create(req,res,next){
     });
 
     member.save().then(obj => res.status(200).json({
-        msg:"Socio creado correctamente ",
+        msg:res.__('members.create.ok'),
+        id:obj._id,
         obj:obj
     })).catch(ex => res.status(500).json({
-        msg: "NO se pudo almacenar el socio",
+        msg:res.__('members.create.wrong'),
         obj:ex
     }));
 
@@ -37,10 +38,10 @@ function create(req,res,next){
 
 function list(req,res,next){
     Member.find().then(objs => res.status(200).json({
-        message:"Lista de Socios",
+        message:res.__('members.list.ok'),
         obj:objs
     })).catch(ex => res.status(500).json({
-        message:"No se puede consultar la lista de socios",
+        message:res.__('members.list.wrong'),
         obj:ex
     }));
 
@@ -49,10 +50,10 @@ function list(req,res,next){
 function index(req,res,next){
     const id = req.params.id;
     Member.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Socio con el id ${id}`,
+        message:res.__('members.index.ok',{ memberId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puede consultar el socio con el id: ${id}`,
+        message:res.__('members.index.wrong',{ memberId: id }),
         obj:ex
     }));
 }
@@ -68,10 +69,10 @@ function replace(req,res,next){
     });
     Member.findOneAndUpdate({"_id":id}, member, {new:true})
             .then(obj => res.status(200).json({
-                message:`Miembro reemplazado correctamente, con el id: ${id}`,
+                message:res.__('members.replace.ok',{ memberId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puede reemplazar el miembro con el id: ${id}`,
+                message:res.__('members.replace.wrong',{ memberId: id }),
                 obj:ex
             }));
 }
@@ -88,10 +89,10 @@ function update(req,res,next){
     if(phone) member._phone = phone;
     Member.findOneAndUpdate({"_id":id}, member)
             .then(obj => res.status(200).json({
-                message:`Miembro actualizado corretamente, con el id: ${id}`,
+                message:res.__('members.update.ok',{ memberId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se pudo actualizar el miembro con el id: ${id}`,
+                message:res.__('members.update.wrong',{ memberId: id }),
                 obj:ex
             }));
 }
@@ -99,10 +100,10 @@ function update(req,res,next){
 function destroy(req,res,next){
     const id = req.params.id;
     Member.findByIdAndRemove({"_id":id}).then(obj => res.status(200).json({
-        message:`Miembro eliminado correctamente, contaba con el id: ${id}`,
+        message:res.__('members.destroy.ok',{ memberId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puede eliminar el miembro con el id: ${id}`,
+        message:res.__('members.destroy.wrong',{ memberId: id }),
         obj:ex
     }));
 }

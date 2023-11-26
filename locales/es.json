@@ -1,4 +1,192 @@
 {
     "login.ok":"Sesion iniciada correctamente",
-    "login.wrong":"Usuario y/o contraseña incorrectos"
+    "login.wrong":"Usuario y/o contraseña incorrectos",
+
+
+    
+    "users.create.ok":"User creado correctamente",
+    "users.create.wrong":"No se pudo almacenar el Usuario",
+
+    "users.list.ok":"Lista de Usuarios",
+    "users.list.wrong":"No se pudo consultar la lista de usuarios",
+
+    "users.index.ok":"Usuario con el id:{{userId}}",
+    "users.index.wrong":"No se pudo consultar el usuario con el id: {{userId}}",
+
+    "users.replace.ok":"Usuario reemplazado correctamente, con el id: {{userId}}",
+    "users.replace.wrong":"No se pudo reemplazar el usuario con el id:{{userId}}",
+
+    "users.update,ok":"Usuario actualizado correctamente,con el id {{userId}}",
+    "users.update.wrong":"No se pudo actualizar el usuario con el id:{{userId}}",
+
+    "users.destroy.ok":"Usuario eliminado correctamente,con el id: {{userId}}",
+    "users.destroy.wrong":"No se pudo eliminar el usuario con el id: {{userId}}",
+
+
+
+
+
+    "movies.create.ok": "Película creada correctamente",
+    "movies.create.wrong": "No se pudo almacenar la película",
+
+    "movies.list.ok": "Lista de Películas",
+    "movies.list.wrong": "No se pudo consultar la lista de películas",
+
+    "movies.index.ok": "Película con el id: {{movieId}}",
+    "movies.index.wrong": "No se pudo consultar la película con el id: {{movieId}}",
+
+    "movies.replace.ok": "Película reemplazada correctamente, con el id: {{movieId}}",
+    "movies.replace.wrong": "No se pudo reemplazar la película con el id: {{movieId}}",
+
+    "movies.update.ok": "Película actualizada correctamente, con el id: {{movieId}}",
+    "movies.update.wrong": "No se pudo actualizar la película con el id: {{movieId}}",
+
+    "movies.destroy.ok": "Película eliminada correctamente, con el id: {{movieId}}",
+    "movies.destroy.wrong": "No se pudo eliminar la película con el id: {{movieId}}",
+
+
+
+
+    "members.create.ok": "Miembro creado correctamente",
+    "members.create.wrong": "No se pudo almacenar el Miembro",
+
+    "members.list.ok": "Lista de Miembros",
+    "members.list.wrong": "No se pudo consultar la lista de miembros",
+
+    "members.index.ok": "Miembro con el id: {{memberId}}",
+    "members.index.wrong": "No se pudo consultar el miembro con el id: {{memberId}}",
+
+    "members.replace.ok": "Miembro reemplazado correctamente, con el id: {{memberId}}",
+    "members.replace.wrong": "No se pudo reemplazar el miembro con el id: {{memberId}}",
+
+    "members.update.ok": "Miembro actualizado correctamente, con el id: {{memberId}}",
+    "members.update.wrong": "No se pudo actualizar el miembro con el id: {{memberId}}",
+
+    "members.destroy.ok": "Miembro eliminado correctamente, con el id: {{memberId}}",
+    "members.destroy.wrong": "No se pudo eliminar el miembro con el id: {{memberId}}",
+
+
+
+
+    "genres.create.ok": "Género creado correctamente",
+    "genres.create.wrong": "No se pudo almacenar el Género",
+    
+    "genres.list.ok": "Lista de Géneros",
+    "genres.list.wrong": "No se pudo consultar la lista de géneros",
+    
+    "genres.index.ok": "Género con el id: {{genreId}}",
+    "genres.index.wrong": "No se pudo consultar el género con el id: {{genreId}}",
+    
+    "genres.replace.ok": "Género reemplazado correctamente, con el id: {{genreId}}",
+    "genres.replace.wrong": "No se pudo reemplazar el género con el id: {{genreId}}",
+    
+    "genres.update.ok": "Género actualizado correctamente, con el id: {{genreId}}",
+    "genres.update.wrong": "No se pudo actualizar el género con el id: {{genreId}}",
+    
+    "genres.destroy.ok": "Género eliminado correctamente, con el id: {{genreId}}",
+    "genres.destroy.wrong": "No se pudo eliminar el género con el id: {{genreId}}",
+
+
+
+
+    "directors.create.ok": "Director creado correctamente",
+    "directors.create.wrong": "No se pudo almacenar el Director",
+    
+    "directors.list.ok": "Lista de Directores",
+    "directors.list.wrong": "No se pudo consultar la lista de directores",
+    
+    "directors.index.ok": "Director con el id: {{directorId}}",
+    "directors.index.wrong": "No se pudo consultar el director con el id: {{directorId}}",
+    
+    "directors.replace.ok": "Director reemplazado correctamente, con el id: {{directorId}}",
+    "directors.replace.wrong": "No se pudo reemplazar el director con el id: {{directorId}}",
+    
+    "directors.update.ok": "Director actualizado correctamente, con el id: {{directorId}}",
+    "directors.update.wrong": "No se pudo actualizar el director con el id: {{directorId}}",
+    
+    "directors.destroy.ok": "Director eliminado correctamente, con el id: {{directorId}}",
+    "directors.destroy.wrong": "No se pudo eliminar el director con el id: {{directorId}}",
+
+
+
+    "copies.create.ok": "Copia creada correctamente",
+    "copies.create.wrong": "No se pudo crear la Copia",
+    
+    "copies.list.ok": "Lista de Copias",
+    "copies.list.wrong": "No se pudo consultar la lista de copias",
+    
+    "copies.index.ok": "Copia con el id: {{copyId}}",
+    "copies.index.wrong": "No se pudo consultar la copia con el id: {{copyId}}",
+    
+    "copies.replace.ok": "Copia reemplazada correctamente, con el id: {{copyId}}",
+    "copies.replace.wrong": "No se pudo reemplazar la copia con el id: {{copyId}}",
+    
+    "copies.update.ok": "Copia actualizada correctamente, con el id: {{copyId}}",
+    "copies.update.wrong": "No se pudo actualizar la copia con el id: {{copyId}}",
+    
+    "copies.destroy.ok": "Copia eliminada correctamente, con el id: {{copyId}}",
+    "copies.destroy.wrong": "No se pudo eliminar la copia con el id: {{copyId}}",
+    
+    
+
+    "bookings.create.ok": "Reserva creada correctamente",
+    "bookings.create.wrong": "No se pudo crear la Reserva",
+    
+    "bookings.list.ok": "Lista de Reservas",
+    "bookings.list.wrong": "No se pudo consultar la lista de reservas",
+    
+    "bookings.index.ok": "Reserva con el id: {{bookingId}}",
+    "bookings.index.wrong": "No se pudo consultar la reserva con el id: {{bookingId}}",
+    
+    "bookings.replace.ok": "Reserva reemplazada correctamente, con el id: {{bookingId}}",
+    "bookings.replace.wrong": "No se pudo reemplazar la reserva con el id: {{bookingId}}",
+    
+    "bookings.update.ok": "Reserva actualizada correctamente, con el id: {{bookingId}}",
+    "bookings.update.wrong": "No se pudo actualizar la reserva con el id: {{bookingId}}",
+    
+    "bookings.destroy.ok": "Reserva eliminada correctamente, con el id: {{bookingId}}",
+    "bookings.destroy.wrong": "No se pudo eliminar la reserva con el id: {{bookingId}}",
+    
+    
+
+    "awaitlists.create.ok": "Entrada en lista de espera creada correctamente",
+    "awaitlists.create.wrong": "No se pudo crear la entrada en lista de espera",
+    
+    "awaitlists.list.ok": "Lista de entradas en lista de espera",
+    "awaitlists.list.wrong": "No se pudo consultar la lista de entradas en lista de espera",
+    
+    "awaitlists.index.ok": "Entrada en lista de espera con el id: {{awaitlistId}}",
+    "awaitlists.index.wrong": "No se pudo consultar la entrada en lista de espera con el id: {{awaitlistId}}",
+    
+    "awaitlists.replace.ok": "Entrada en lista de espera reemplazada correctamente, con el id: {{awaitlistId}}",
+    "awaitlists.replace.wrong": "No se pudo reemplazar la entrada en lista de espera con el id: {{awaitlistId}}",
+    
+    "awaitlists.update.ok": "Entrada en lista de espera actualizada correctamente, con el id: {{awaitlistId}}",
+    "awaitlists.update.wrong": "No se pudo actualizar la entrada en lista de espera con el id: {{awaitlistId}}",
+    
+    "awaitlists.destroy.ok": "Entrada en lista de espera eliminada correctamente, con el id: {{awaitlistId}}",
+    "awaitlists.destroy.wrong": "No se pudo eliminar la entrada en lista de espera con el id: {{awaitlistId}}",
+
+
+
+    "actors.create.ok": "Actor creado correctamente",
+    "actors.create.wrong": "No se pudo crear el Actor",
+    
+    "actors.list.ok": "Lista de Actores",
+    "actors.list.wrong": "No se pudo consultar la lista de actores",
+    
+    "actors.index.ok": "Actor con el id: {{actorId}}",
+    "actors.index.wrong": "No se pudo consultar el actor con el id: {{actorId}}",
+    
+    "actors.replace.ok": "Actor reemplazado correctamente, con el id: {{actorId}}",
+    "actors.replace.wrong": "No se pudo reemplazar el actor con el id: {{actorId}}",
+    
+    "actors.update.ok": "Actor actualizado correctamente, con el id: {{actorId}}",
+    "actors.update.wrong": "No se pudo actualizar el actor con el id: {{actorId}}",
+    
+    "actors.destroy.ok": "Actor eliminado correctamente, con el id: {{actorId}}",
+    "actors.destroy.wrong": "No se pudo eliminar el actor con el id: {{actorId}}"
+    
+
+
 }

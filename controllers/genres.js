@@ -8,20 +8,21 @@ function create(req, res, next){
         description:description, status:status
     });
     genre.save().then(obj => res.status(200).json({
-        message:"Genero creado correctamente", 
+        message:res.__('genres.create.ok'),
+        id:obj._id,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se puedo almacenar el genero",
+        message:res.__('genres.create.wrong'),
         obj:ex
     }));
 }
 
 function list(req, res, next) {
     Genre.find().then(objs => res.status(200).json({
-        message:"Lista de generos",
+        message:res.__('genres.list.ok'),
         obj:objs
     })).catch(ex => res.status(500).json({
-        message:"No se puedo consultar la lista de generos",
+        message:res.__('genres.list.wrong'),
         obj:ex
     }));
 }
@@ -29,10 +30,10 @@ function list(req, res, next) {
 function index(req, res, next){
     const id = req.params.id;
     Genre.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Genero con el id ${id}`,
+        message:res.__('genres.index.ok',{ genreId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo consultar el genero con el id: ${id}`,
+        message:res.__('genres.index.wrong',{ genreId: id }),
         obj:ex
     }));
 }
@@ -46,10 +47,10 @@ function replace(req, res, next){
     });
     Genre.findOneAndUpdate({"_id":id}, genre, {new:true})
             .then(obj => res.status(200).json({
-                message:`Genero reemplazado correctamente, con el id: ${id}`,
+                message:res.__('genres.replace.ok',{ genreId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo reemplazar el genero con el id: ${id}`,
+                message:res.__('genres.replace.wrong',{ genreId: id }),
                 obj:ex
             }));
 }
@@ -63,10 +64,10 @@ function update(req, res, next){
     if(status) genre._status = status;
     Genre.findOneAndUpdate({"_id":id}, genre)
             .then(obj => res.status(200).json({
-                message:`Genero actualizado corretamente, con el id: ${id}`,
+                message:res.__('genres.update.ok',{ genreId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo actualizar el genero con el id: ${id}`,
+                message:res.__('genres.update.wrong',{ genreId: id }),
                 obj:ex
             }));
 }
@@ -74,10 +75,10 @@ function update(req, res, next){
 function destroy(req, res, next){
     const id = req.params.id;
     Genre.findByIdAndRemove({"_id":id}).then(obj => res.status(200).json({
-        message:`Genero eliminado correctamente, contaba con el id: ${id}`,
+        message:res.__('genres.destroy.ok',{ genreId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar el genero con el id: ${id}`,
+        message:res.__('genres.destroy.wrong',{ genreId: id }),
         obj:ex
     }));
 }

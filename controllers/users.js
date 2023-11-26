@@ -15,20 +15,21 @@ async function create(req, res, next){
         name:name, lastName:lastName, email:email, password:passwordHash, salt:salt
     }); 
     user.save().then(obj => res.status(200).json({
-        message:"Usuario creado correctamente", 
+        message:res.__('users.create.ok'),
+        id:obj._id,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se puedo almacenar el usuario",
+        message:res.__('users.create.wrong'),
         obj:ex
     }));
 }
 
 function list(req, res, next) {
     User.find().then(objs => res.status(200).json({
-        message:"Lista de usuarios",
+        message:res.__('users.list.ok'),
         obj:objs
     })).catch(ex => res.status(500).json({
-        message:"No se puedo consultar la lista de usuarios",
+        message:res.__('users.list.wrong'),
         obj:ex
     }));
 }
@@ -36,10 +37,10 @@ function list(req, res, next) {
 function index(req, res, next){
     const id = req.params.id;
     User.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Usuario con el id ${id}`,
+        message:res.__('users.index.ok',{ userId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo consultar el usuario con el id: ${id}`,
+        message:res.__('users.index.wrong',{ userId: id }),
         obj:ex
     }));
 }
@@ -55,10 +56,10 @@ function replace(req, res, next){
     });
     User.findOneAndUpdate({"_id":id}, user, {new:true})
             .then(obj => res.status(200).json({
-                message:`Usuario reemplazado correctamente, con el id: ${id}`,
+                message:res.__('users.replace.ok',{ userId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo reemplazar el usuario con el id: ${id}`,
+                message:res.__('users.replace.wrong',{ userId: id }),
                 obj:ex
             }));
 }
@@ -76,10 +77,10 @@ function update(req, res, next){
     if(password) user._password = password;
     User.findOneAndUpdate({"_id":id}, user)
             .then(obj => res.status(200).json({
-                message:`Usuario actualizado corretamente, con el id: ${id}`,
+                message:res.__('users.update.ok',{ userId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo actualizar el usuario con el id: ${id}`,
+                message:res.__('users.update.wrong',{ userId: id }),
                 obj:ex
             }));
 }
@@ -87,10 +88,10 @@ function update(req, res, next){
 function destroy(req, res, next){
     const id = req.params.id;
     User.findByIdAndRemove({"_id":id}).then(obj => res.status(200).json({
-        message:`Usuario eliminado correctamente, contaba con el id: ${id}`,
+        message:res.__('users.destroy.ok',{ userId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar el usuario con el id: ${id}`,
+        message:res.__('users.destroy.wrong',{ userId: id }),
         obj:ex
     }));
 }

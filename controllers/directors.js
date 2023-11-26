@@ -9,10 +9,11 @@ function create(req, res, next){
         lastName:lastName
     });
     director.save().then(obj => res.status(200).json({
-        message:"Director creado correctamente", 
+        message:res.__('directors.create.ok'), 
+        id : obj._id,
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:"No se puedo almacenar el director",
+        message:res.__('directors.create.wrong'),
         obj:ex
     }));
 }
@@ -21,20 +22,20 @@ function list(req, res, next) {
     let page = req.params.page ? req.params.page: 1;
     const options = {page:page, limit:10};
     Director.paginate({}, options).then(objs => res.status(200).json({
-        msg:"Lista de directores",
+        msg:res.__('directors.list.ok'),
         obj:objs
     })).catch(ex => res.status(500).json({
-        msg:"Error al mostrar la lista de usuarios",
+        msg:res.__('directors.list.wrong'),
         obj:ex
     }));
 }
 function index(req, res, next){
     const id = req.params.id;
     Director.findOne({"_id":id}).then(obj => res.status(200).json({
-        message:`Director con el id ${id}`,
+        message:res.__('directors.index.ok',{ directorId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo consultar el director con el id: ${id}`,
+        message:res.__('directors.index.wrong',{ directorId: id }),
         obj:ex
     }));
 }
@@ -48,10 +49,10 @@ function replace(req, res, next){
     });
     Director.findOneAndUpdate({"_id":id}, director, {new:true})
             .then(obj => res.status(200).json({
-                message:`Director reemplazado correctamente, con el id: ${id}`,
+                message:res.__('directors.replace.ok',{ directorId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo reemplazar el director con el id: ${id}`,
+                message:res.__('directors.replace.wrong',{ directorId: id }),
                 obj:ex
             }));
 }
@@ -65,10 +66,10 @@ function update(req, res, next){
     if(lastName) director._lastName = lastName;
     Director.findOneAndUpdate({"_id":id}, director)
             .then(obj => res.status(200).json({
-                message:`Director actualizado corretamente, con el id: ${id}`,
+                message:res.__('directors.update.ok',{ directorId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo actualizar el director con el id: ${id}`,
+                message:res.__('directors.update.wrong',{ directorId: id }),
                 obj:ex
             }));
 }
@@ -76,10 +77,10 @@ function update(req, res, next){
 function destroy(req, res, next){
     const id = req.params.id;
     Director.findByIdAndRemove({"_id":id}).then(obj => res.status(200).json({
-        message:`Director eliminado correctamente, contaba con el id: ${id}`,
+        message:res.__('directors.destroy.ok',{ directorId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar el director con el id: ${id}`,
+        message:res.__('directors.destroy.wrong',{ directorId: id }),
         obj:ex
     }));
 }

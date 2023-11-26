@@ -42,14 +42,6 @@ class AwaitList{
 
 
 
-
-
-
-
-
-
-
-
 schema.loadClass(AwaitList);
 module.exports = mongoose.model('AwaitList', schema);
 

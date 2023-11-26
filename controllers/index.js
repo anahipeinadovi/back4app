@@ -25,7 +25,7 @@ function login(req, res, next) {
                 }
                 if(hash === user.password){
                     res.status(200).json({
-                        message: "Login Ok",
+                        message: res.__('login.ok'),
                         obj: jwt.sign({data:user.data, exp:Math.floor(Date.now()/1000) + 180}, JwtKey)
                     });
                 } else {

@@ -4,7 +4,7 @@ const controller = require('../controllers/actors');
 
 router.post('/', controller.create)
 
-router.get('/', controller.list);
+router.get('/list', controller.list);
 
 router.get('/:id', controller.index);
 

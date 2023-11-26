@@ -1,4 +1,185 @@
 {
-    "login.ok":"Login success",
-    "login.wrong":"USer or password are wrong"
+	"login.ok": "Login success",
+	"login.wrong": "User or password are wrong",
+
+    "users.create.ok": "User created successfully",
+    "users.create.wrong": "Could not store the User",
+    
+    "users.list.ok": "List of Users",
+    "users.list.wrong": "Could not retrieve the list of users",
+    
+    "users.index.ok": "User with the id: {{userId}}",
+    "users.index.wrong": "We can't consult the user with the id: {{userId}}",
+    
+    "users.replace.ok": "User replaced successfully, with ID: {{userId}}",
+    "users.replace.wrong": "Could not replace the user with ID: {{userId}}",
+    
+    "users.update.ok": "User updated successfully, with ID: {{userId}}",
+    "users.update.wrong": "Could not update the user with ID: {{userId}}",
+    
+    "users.destroy.ok": "User deleted successfully, with ID: {{userId}}",
+    "users.destroy.wrong": "Could not delete the user with ID: {{userId}}",
+    
+    
+    
+    "movies.create.ok": "Movie created successfully",
+    "movies.create.wrong": "Could not store the movie",
+    
+    "movies.list.ok": "List of Movies",
+    "movies.list.wrong": "Could not fetch the list of movies",
+    
+    "movies.index.ok": "Movie with ID: {{movieId}}",
+    "movies.index.wrong": "Could not fetch the movie with ID: {{movieId}}",
+    
+    "movies.replace.ok": "Movie replaced successfully, with ID: {{movieId}}",
+    "movies.replace.wrong": "Could not replace the movie with ID: {{movieId}}",
+    
+    "movies.update.ok": "Movie updated successfully, with ID: {{movieId}}",
+    "movies.update.wrong": "Could not update the movie with ID: {{movieId}}",
+    
+    "movies.destroy.ok": "Movie deleted successfully, with ID: {{movieId}}",
+    "movies.destroy.wrong": "Could not delete the movie with ID: {{movieId}}",
+    
+    
+    "members.create.ok": "Member created successfully",
+    "members.create.wrong": "Unable to store the Member",
+    
+    "members.list.ok": "List of Members",
+    "members.list.wrong": "Unable to fetch the list of members",
+    
+    "members.index.ok": "Member with id: {{memberId}}",
+    "members.index.wrong": "Unable to fetch the member with id: {{memberId}}",
+    
+    "members.replace.ok": "Member replaced successfully with id: {{memberId}}",
+    "members.replace.wrong": "Unable to replace the member with id: {{memberId}}",
+    
+    "members.update.ok": "Member updated successfully with id: {{memberId}}",
+    "members.update.wrong": "Unable to update the member with id: {{memberId}}",
+    
+    "members.destroy.ok": "Member deleted successfully with id: {{memberId}}",
+    "members.destroy.wrong": "Unable to delete the member with id: {{memberId}}",
+    
+    
+    
+    "genres.create.ok": "Genre created successfully",
+    "genres.create.wrong": "Unable to store the Genre",
+    
+    "genres.list.ok": "List of Genres",
+    "genres.list.wrong": "Unable to fetch the list of genres",
+    
+    "genres.index.ok": "Genre with id: {{genreId}}",
+    "genres.index.wrong": "Unable to fetch the genre with id: {{genreId}}",
+    
+    "genres.replace.ok": "Genre replaced successfully with id: {{genreId}}",
+    "genres.replace.wrong": "Unable to replace the genre with id: {{genreId}}",
+    
+    "genres.update.ok": "Genre updated successfully with id: {{genreId}}",
+    "genres.update.wrong": "Unable to update the genre with id: {{genreId}}",
+    
+    "genres.destroy.ok": "Genre deleted successfully with id: {{genreId}}",
+    "genres.destroy.wrong": "Unable to delete the genre with id: {{genreId}}",
+    
+    
+    
+    "directors.create.ok": "Director created successfully",
+    "directors.create.wrong": "Unable to store the Director",
+    
+    "directors.list.ok": "List of Directors",
+    "directors.list.wrong": "Unable to fetch the list of directors",
+    
+    "directors.index.ok": "Director with id: {{directorId}}",
+    "directors.index.wrong": "Unable to fetch the director with id: {{directorId}}",
+    
+    "directors.replace.ok": "Director replaced successfully with id: {{directorId}}",
+    "directors.replace.wrong": "Unable to replace the director with id: {{directorId}}",
+    
+    "directors.update.ok": "Director updated successfully with id: {{directorId}}",
+    "directors.update.wrong": "Unable to update the director with id: {{directorId}}",
+    
+    "directors.destroy.ok": "Director deleted successfully with id: {{directorId}}",
+    "directors.destroy.wrong": "Unable to delete the director with id: {{directorId}}",
+    
+
+    "copies.create.ok": "Copy created successfully",
+    "copies.create.wrong": "Unable to create the Copy",
+    
+    "copies.list.ok": "List of Copies",
+    "copies.list.wrong": "Unable to fetch the list of copies",
+    
+    "copies.index.ok": "Copy with id: {{copyId}}",
+    "copies.index.wrong": "Unable to fetch the copy with id: {{copyId}}",
+    
+    "copies.replace.ok": "Copy replaced successfully with id: {{copyId}}",
+    "copies.replace.wrong": "Unable to replace the copy with id: {{copyId}}",
+
+    "copies.update.ok": "Copy updated successfully with id: {{copyId}}",
+    "copies.update.wrong": "Unable to update the copy with id: {{copyId}}",
+
+    "copies.destroy.ok": "Copy deleted successfully with id: {{copyId}}",
+    "copies.destroy.wrong": "Unable to delete the copy with id: {{copyId}}",
+
+
+
+
+    "bookings.create.ok": "Booking created successfully",
+    "bookings.create.wrong": "Unable to create the Booking",
+    
+    "bookings.list.ok": "List of Bookings",
+    "bookings.list.wrong": "Unable to fetch the list of bookings",
+    
+    "bookings.index.ok": "Booking with id: {{bookingId}}",
+    "bookings.index.wrong": "Unable to fetch the booking with id: {{bookingId}}",
+    
+    "bookings.replace.ok": "Booking replaced successfully with id: {{bookingId}}",
+    "bookings.replace.wrong": "Unable to replace the booking with id: {{bookingId}}",
+    
+    "bookings.update.ok": "Booking updated successfully with id: {{bookingId}}",
+    "bookings.update.wrong": "Unable to update the booking with id: {{bookingId}}",
+    
+    "bookings.destroy.ok": "Booking deleted successfully with id: {{bookingId}}",
+    "bookings.destroy.wrong": "Unable to delete the booking with id: {{bookingId}}",
+    
+
+
+
+
+    "awaitlists.create.ok": "Awaitlist entry created successfully",
+    "awaitlists.create.wrong": "Unable to create the Awaitlist entry",
+    
+    "awaitlists.list.ok": "List of Awaitlist entries",
+    "awaitlists.list.wrong": "Unable to fetch the list of awaitlist entries",
+    
+    "awaitlists.index.ok": "Awaitlist entry with id: {{awaitlistId}}",
+    "awaitlists.index.wrong": "Unable to fetch the awaitlist entry with id: {{awaitlistId}}",
+    
+    "awaitlists.replace.ok": "Awaitlist entry replaced successfully with id: {{awaitlistId}}",
+    "awaitlists.replace.wrong": "Unable to replace the awaitlist entry with id: {{awaitlistId}}",
+    
+    "awaitlists.update.ok": "Awaitlist entry updated successfully with id: {{awaitlistId}}",
+    "awaitlists.update.wrong": "Unable to update the awaitlist entry with id: {{awaitlistId}}",
+    
+    "awaitlists.destroy.ok": "Awaitlist entry deleted successfully with id: {{awaitlistId}}",
+    "awaitlists.destroy.wrong": "Unable to delete the awaitlist entry with id: {{awaitlistId}}",
+
+
+
+    "actors.create.ok": "Actor created successfully",
+    "actors.create.wrong": "Unable to create the Actor",
+    
+    "actors.list.ok": "List of Actors",
+    "actors.list.wrong": "Unable to fetch the list of actors",
+    
+    "actors.index.ok": "Actor with id: {{actorId}}",
+    "actors.index.wrong": "Unable to fetch the actor with id: {{actorId}}",
+    
+    "actors.replace.ok": "Actor replaced successfully with id: {{actorId}}",
+    "actors.replace.wrong": "Unable to replace the actor with id: {{actorId}}",
+    
+    "actors.update.ok": "Actor updated successfully with id: {{actorId}}",
+    "actor.update.wrong": "Unable to update the actor with id: {{actorId}}",
+    
+    "actors.destroy.ok": "Actor deleted successfully with id: {{actorId}}",
+    "actors.destroy.wrong": "Unable to delete the actor with id: {{actorId}}"
+    
+
 }

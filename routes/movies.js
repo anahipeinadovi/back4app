@@ -4,9 +4,9 @@ const controller = require('../controllers/movies');
 
 /* GET users listing. */ 
 //el orden de los controladores afecta la ejecucion (como tenemos controladores se hacen las rutas correspondientes para hacer match)
-router.get('/',controller.list);
-
 router.post('/',controller.create);
+
+router.get('/',controller.list);
 
 router.put('/:id',controller.replace);
 

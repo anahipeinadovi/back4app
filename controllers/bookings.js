@@ -21,10 +21,11 @@ async function create(req,res,next){
     });
 
     booking.save().then(obj => res.status(200).json({
-        msg:"Reserva almacenada correctamente",
+        msg:res.__('bookings.create.ok'),
+        id:obj._id,
         obj:obj
     })).catch(ex => res.status(500).json({
-        msg:"No se pudo crear la reserva",
+        msg:res.__('bookings.create.wrong'),
         obj:ex
     }));
     
@@ -33,10 +34,10 @@ async function create(req,res,next){
 function list(req,res,next){
     Booking.find()
     .populate("_member _copy").then(objs => res.status(200).json({
-        msg: "Lista de reservas",
+        msg: res.__('bookings.list.ok'),
         objs:objs
     })).catch(ex => res.status(500).json({
-        message:"No se pudo ver la lista de reservas ",
+        message:res.__('bookings.list.wrong'),
         obj:ex
     }));
 }
@@ -45,10 +46,10 @@ function index(req,res,next){
     const id = req.params.id;
     Booking.findOne({"_id":id}).populate("_member _copy")
     .then(obj => res.status(200).json({
-        message:`Reserva con el id ${id}`,
+        message:res.__('bookings.index.ok',{ bookingId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo consultar la reserva con el id: ${id}`,
+        message:res.__('bookings.index.wrong',{ bookingId: id }),
         obj:ex
     }))
 }
@@ -67,11 +68,11 @@ function replace(req,res,next){
 
     Booking.findOneAndUpdate({"_id":id},booking,{new:true})
     .then(obj => res.status(200).json({
-        msg:`Reserva remplazada correctamente, con el id: ${id}`,
+        msg:res.__('bookings.replace.ok',{ bookingId: id }),
         obj:obj
     }))
     .catch(ex => res.status(500).json({
-        message:`No se pudo remplazar la reserva con el id ${id}`,
+        message:res.__('bookings.replace.wrong',{ bookingId: id }),
         obj:ex
     }));
 
@@ -91,10 +92,10 @@ function update(req, res, next){
     if(copyId) booking._copy = copyId;
     Booking.findOneAndUpdate({"_id":id}, booking)
             .then(obj => res.status(200).json({
-                message:`Pelicula actualizada correctamente, con el id: ${id}`,
+                message:res.__('bookings.update.ok',{ bookingId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se pudo actualizar la pelicula con el id: ${id}`,
+                message:res.__('bookings.update.wrong',{ bookingId: id }),
                 obj:ex
             }));
 }
@@ -103,10 +104,10 @@ function update(req, res, next){
 function destroy(req, res, next){
     const id = req.params.id;
     Booking.findByIdAndRemove({"_id":id}).then(obj => res.status(200).json({
-        message:`Reservacion eliminada correctamente, contaba con el id: ${id}`,
+        message:res.__('bookings.destroy.ok',{ bookingId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puedo eliminar la reservacion con el id: ${id}`,
+        message:res.__('bookings.destroy.wrong',{ bookingId: id }),
         obj:ex
     }));
 }

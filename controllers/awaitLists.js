@@ -16,10 +16,11 @@ async function create(req,res,next){
     });
 
     awaitList.save().then(obj => res.status(200).json({
-        msg:"Lista de espera almacenada correctamente ",
+        msg:res.__('awaitlists.create.ok'),
+        id:obj._id,
         obj:obj
     })).catch(ex => res.status(500).json({
-        msg:"No se pudo crear la lista de espera",
+        msg:res.__('awaitlists.create.wrong'),
         obj:ex
     }));
 }
@@ -28,10 +29,10 @@ function list(req,res,next){
     AwaitList.find()
     .populate(["_member", "_movie"])
     .then(objs => res.status(200).json({
-        msg: "Lista de Reservas",
+        msg: res.__('awaitlists.list.ok'),
         objs:objs
     })).catch(ex => res.status(500).json({
-        message:"No se pudo ver la lista de reservas ",
+        message:res.__('awaitlists.list.wrong'),
         obj:ex
     }));
 }
@@ -41,10 +42,10 @@ function index(req,res,next){
     AwaitList.findOne({"_id":id})
     .populate(["_member" ,"_movie"])
     .then(obj => res.status(200).json({
-        message:`Reserva con el id ${id}`,
+        message:res.__('awaitlists.index.ok',{ awaitlistId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se pudo consultar la reserva con el id: ${id}`,
+        message:res.__('awaitlists.index.wrong',{ awaitlistId: id }),
         obj:ex
     }));
 }
@@ -61,11 +62,11 @@ function replace(req,res,next){
 
     AwaitList.findOneAndUpdate({"_id":id},awaitList,{new:true})
     .then(obj => res.status(200).json({
-        msg:`Reserva remplazada correctamente, con el id: ${id}`,
+        msg:res.__('awaitlists.replace.ok',{ awaitlistId: id }),
         obj:obj
     }))
     .catch(ex => res.status(500).json({
-        message:`NO se pudo remplazar la reservacon el id ${id}`,
+        message:res.__('awaitlists.replace.wrong',{ awaitlistId: id }),
         obj:ex
     }))
 }
@@ -80,10 +81,10 @@ function update(req, res, next){
     if(movieId) awaitList._movie = movieId;
     AwaitList.findOneAndUpdate({"_id":id}, awaitList)
             .then(obj => res.status(200).json({
-                message:`Lista de espera actualizada corretamente, con el id: ${id}`,
+                message:res.__('awaitlists.update.ok',{ awaitlistId: id }),
                 obj:obj
             })).catch(ex => res.status(500).json({
-                message:`No se puedo actualizar la lista de espera con el id: ${id}`,
+                message:res.__('awaitlists.update.wrong',{ awaitlistId: id }),
                 obj:ex
             }));
 }
@@ -95,10 +96,10 @@ function destroy(req,res,next){
     const id = req.params.id;
     AwaitList.findByIdAndRemove({"_id":id})
     .then(obj => res.status(200).json({
-        message:`Lista de espera eliminada correctamente, contaba con el id: ${id}`,
+        message:res.__('awaitlists.destroy.ok',{ awaitlistId: id }),
         obj:obj
     })).catch(ex => res.status(500).json({
-        message:`No se puede eliminar la lista de espera con el id: ${id}`,
+        message:res.__('awaitlists.destroy.wrong',{ awaitlistId: id }),
         obj:ex
     }));
 }
