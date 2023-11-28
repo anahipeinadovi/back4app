@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const {expressjwt} = require('express-jwt');
 const config = require('config');
 const i18n = require('i18n');
+const cors = require('cors');
 //const JwtKey = "c7f6663f925ce99625563a31b3d33adb";
 const JwtKey = config.get("secret.key");
 
@@ -58,7 +59,9 @@ app.use(i18n.init); //da una funcion que inicializa el proceso de i18n
 
 //app.use(expressjwt({secret:JwtKey,algorithms:['HS256']}).unless({path:['/login']})); 
 
-
+app.use(cors({
+  origin:"http://127.0.0.1:8080"
+}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/directors', directorsRouter);
